@@ -53,9 +53,10 @@ module.exports =
 
     # Left align 'string' in a field of size 'fieldwidth'
     @leftAlign: (string, fieldWidth) ->
-      spaces = fieldWidth - string.length
-      right = spaces
-      "#{string}#{Tabularize.repeatPadding(right)}"
+      if string?
+        spaces = fieldWidth - string.length
+        right = spaces
+        "#{string}#{Tabularize.repeatPadding(right)}"
 
     @stripTrailingWhitespace: (text) ->
       text.replace /\s+$/g, ""
